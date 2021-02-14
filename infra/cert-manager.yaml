@@ -7,13 +7,20 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: infra
-  source:
-    path: appservices/common/cert-manager
-    repoURL: https://github.com/riveryc/argo-stack.git
-    targetRevision: ingress-preinstall
   destination:
-    server: https://kubernetes.default.svc
+    namespace: cert-manager
+    server: 'https://kubernetes.default.svc'
+  source:
+    repoURL: 'https://charts.jetstack.io'
+    targetRevision: v1.2.0
+    chart: cert-manager
+    helm:
+      parameters:
+        - name: installCRDs
+          value: 'true'
   syncPolicy:
     automated:
       selfHeal: true
       prune: true
+    syncOptions:
+    - CreateNamespace=true
