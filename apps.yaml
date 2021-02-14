@@ -10,7 +10,7 @@ spec:
   project: infra
   source:
     repoURL: https://github.com/riveryc/argo-stack.git
-    targetRevision: HEAD
+    targetRevision: ingress-preinstall
     path: infra
   destination:
     server: https://kubernetes.default.svc
@@ -34,7 +34,7 @@ spec:
   project: production
   source:
     repoURL: https://github.com/riveryc/argo-stack.git
-    targetRevision: HEAD
+    targetRevision: ingress-preinstall
     path: production
   destination:
     server: https://kubernetes.default.svc
@@ -56,7 +56,7 @@ spec:
   project: staging
   source:
     repoURL: https://github.com/riveryc/argo-stack.git
-    targetRevision: HEAD
+    targetRevision: ingress-preinstall
     path: staging
   destination:
     server: https://kubernetes.default.svc
