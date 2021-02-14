@@ -13,7 +13,6 @@ spec:
     targetRevision: ingress-preinstall
   destination:
     server: https://kubernetes.default.svc
-    namespace: argocd
   syncPolicy:
     automated:
       selfHeal: true
