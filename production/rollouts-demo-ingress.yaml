@@ -18,4 +18,4 @@ spec:
   tls:
   - hosts:
     - demo.35.241.71.1.xip.io
-    secretName: argocd-secret # do not change, this is provided by Argo CD
+    secretName: argocd-secret-demo # do not change, this is provided by Argo CD
