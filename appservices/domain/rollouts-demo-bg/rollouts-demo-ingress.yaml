@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: rollout-bluegreen
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    kubernetes.io/ingress.class: nginx
+    kubernetes.io/tls-acme: "true"
+spec:
+  rules:
+  - host: demo-bg.35.241.71.1.xip.io
+    http:
+      paths:
+      - backend:
+          serviceName: rollout-bluegreen
+          servicePort: http
+        path: /
+  tls:
+  - hosts:
+    - demo-bg.35.241.71.1.xip.io
+    secretName: argocd-secret-demo-bg # do not change, this is provided by Argo CD
