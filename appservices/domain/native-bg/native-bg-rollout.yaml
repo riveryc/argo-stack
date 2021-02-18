@@ -1,20 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: rollout-bluegreen
+  name: native-bg
 spec:
-  replicas: 2
+  replicas: 3
   revisionHistoryLimit: 2
   selector:
     matchLabels:
-      app: rollout-bluegreen
+      app: native-bg
   template:
     metadata:
       labels:
-        app: rollout-bluegreen
+        app: native-bg
     spec:
       containers:
-      - name: rollouts-demo
+      - name: native-bg
         image: argoproj/rollouts-demo:red
         imagePullPolicy: Always
         ports:
@@ -23,6 +23,6 @@ spec:
           protocol: TCP
   strategy:
     blueGreen: 
-      activeService: rollout-bluegreen-active
-      previewService: rollout-bluegreen-preview
+      activeService: native-bg-active
+      previewService: native-bg-preview
       autoPromotionEnabled: false

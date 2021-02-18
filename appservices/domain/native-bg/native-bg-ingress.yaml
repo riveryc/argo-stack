@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: rollout-bluegreen-active
+  name: native-bg-active
   annotations:
     argocd.argoproj.io/sync-wave: "3"
     cert-manager.io/cluster-issuer: letsencrypt-prod
@@ -9,37 +9,37 @@ metadata:
     kubernetes.io/tls-acme: "true"
 spec:
   rules:
-  - host: demo-active.poc.awx.onl
+  - host: native-bg-active.poc.awx.onl
     http:
       paths:
       - backend:
-          serviceName: rollout-bluegreen-active
+          serviceName: native-bg-active
           servicePort: http
         path: /
   tls:
   - hosts:
-    - demo-active.poc.awx.onl
-    secretName: tls-cert-demo-active
+    - native-bg-active.poc.awx.onl
+    secretName: tls-cert-native-bg-active
 
 ---
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: rollout-bluegreen-preview
+  name: native-bg-preview
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
     kubernetes.io/ingress.class: nginx
     kubernetes.io/tls-acme: "true"
 spec:
   rules:
-  - host: demo-preview.poc.awx.onl
+  - host: native-bg-preview.poc.awx.onl
     http:
       paths:
       - backend:
-          serviceName: rollout-bluegreen-preview
+          serviceName: native-bg-preview
           servicePort: http
         path: /
   tls:
   - hosts:
-    - demo-preview.poc.awx.onl
-    secretName: tls-cert-demo-preview
+    - native-bg-preview.poc.awx.onl
+    secretName: tls-cert-native-bg-preview
