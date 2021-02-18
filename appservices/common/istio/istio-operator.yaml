@@ -1,24 +1,30 @@
-# apiVersion: argoproj.io/v1alpha1
-# kind: Application
-# metadata:
-#   name: istio-operator
-#   namespace: argocd
-#   annotations:
-#     argocd.argoproj.io/sync-wave: "-2"
-#   finalizers:
-#     - resources-finalizer.argocd.argoproj.io
-# spec:
-#   project: production
-#   source:
-#     path: manifests/charts/istio-operator
-#     repoURL: https://github.com/istio/istio.git
-#     targetRevision: 'release-1.9'
-#   destination:
-#     namespace: istio-operator
-#     server: https://kubernetes.default.svc
-#   syncPolicy:
-#     automated:
-#       selfHeal: true
-#       prune: true
-#     syncOptions:
-#     - CreateNamespace=true
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: istio-operator
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "-2"
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: production
+  source:
+    path: manifests/charts/istio-operator
+    repoURL: https://github.com/istio/istio.git
+    targetRevision: 'release-1.9'
+  destination:
+    namespace: istio-operator
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+    - CreateNamespace=true
+  ignoreDifferences:
+  - group: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: istio-operator
+    jsonPointers:
+    - /metadata/creationTimestamp
