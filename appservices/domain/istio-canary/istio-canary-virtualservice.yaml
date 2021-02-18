@@ -6,7 +6,7 @@ spec:
   gateways:
   - istio-canary-gateway
   hosts:
-  - istio-canary.poc.awx.onl
+  - istio-canary.local
   http:
   - name: primary
     route:
