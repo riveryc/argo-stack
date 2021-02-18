@@ -51,11 +51,8 @@ spec:
       app: istio-canary
   template:
     metadata:
-      annotations:
-        sidecar.istio.io/inject: "true"
       labels:
         app: istio-canary
-        # istio-injection: enabled
     spec:
       containers:
       - name: istio-canary
