@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: native-bg
+  name: app-native-bg
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
