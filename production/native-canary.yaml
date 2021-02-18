@@ -1,19 +1,19 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: rollouts-demo-native
+  name: app-native-canary
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: production
   source:
-    path: appservices/domain/rollouts-demo
+    path: appservices/domain/native-canary
     repoURL: https://github.com/riveryc/argo-stack.git
     targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
-    namespace: domain
+    namespace: native
   syncPolicy:
     automated:
       selfHeal: true

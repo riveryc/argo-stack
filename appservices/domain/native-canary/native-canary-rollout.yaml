@@ -1,11 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: rollouts-demo
+  name: native-canary
 spec:
   replicas: 5
   strategy:
     canary:
+      canaryService: native-canary-preview
       steps:
       - setWeight: 20
       - pause: {}
@@ -18,14 +19,14 @@ spec:
   revisionHistoryLimit: 2
   selector:
     matchLabels:
-      app: rollouts-demo
+      app: native-canary
   template:
     metadata:
       labels:
-        app: rollouts-demo
+        app: native-canary
     spec:
       containers:
-      - name: rollouts-demo
+      - name: native-canary
         image: argoproj/rollouts-demo:blue
         ports:
         - name: http

@@ -1,22 +1,21 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: rollouts-demo
+  name: native-canary
   annotations:
-    argocd.argoproj.io/sync-wave: "3"
     cert-manager.io/cluster-issuer: letsencrypt-prod
     kubernetes.io/ingress.class: nginx
     kubernetes.io/tls-acme: "true"
 spec:
   rules:
-  - host: demo.poc.awx.onl
+  - host: native-canary.poc.awx.onl
     http:
       paths:
       - backend:
-          serviceName: rollouts-demo
+          serviceName: native-canary
           servicePort: http
         path: /
   tls:
   - hosts:
-    - demo.poc.awx.onl
-    secretName: tls-cert-demo
+    - native-canary.poc.awx.onl
+    secretName: tls-cert-native-canary
