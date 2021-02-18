@@ -1,18 +1,18 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: rollouts-demo-vsvc
+  name: istio-canary-vsvc
 spec:
   gateways:
-  - rollouts-demo-gateway
+  - istio-canary-gateway
   hosts:
-  - demo-istio.34.92.159.97.xip.io
+  - istio-canary.poc.awx.onl
   http:
   - name: primary
     route:
     - destination:
-        host: rollouts-demo-stable
+        host: istio-canary-stable
       weight: 100
     - destination:
-        host: rollouts-demo-canary
+        host: istio-canary-canary
       weight: 0

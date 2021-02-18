@@ -1,9 +1,7 @@
 apiVersion: networking.istio.io/v1beta1
 kind: Gateway
 metadata:
-  annotations:
-    argocd.argoproj.io/sync-wave: "3"
-  name: rollouts-demo-gateway
+  name: istio-canary-gateway
 spec:
   selector:
     istio: ingressgateway # use istio default controller

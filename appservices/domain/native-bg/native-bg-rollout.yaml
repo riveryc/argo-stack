@@ -26,3 +26,4 @@ spec:
       activeService: native-bg-active
       previewService: native-bg-preview
       autoPromotionEnabled: false
+      # scaleDownDelaySeconds: 1h # default is 30

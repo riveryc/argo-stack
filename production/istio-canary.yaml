@@ -1,19 +1,19 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: rollouts-demo-istio
+  name: app-istio-cananry
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: production
   source:
-    path: appservices/domain/rollouts-demo-istio
+    path: appservices/domain/istio-canary
     repoURL: https://github.com/riveryc/argo-stack.git
     targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
-    namespace: domain-istio
+    namespace: native
   syncPolicy:
     automated:
       selfHeal: true
