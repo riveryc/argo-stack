@@ -4,22 +4,22 @@ metadata:
   name: rollout-bluegreen-active
   annotations:
     argocd.argoproj.io/sync-wave: "3"
-    # cert-manager.io/cluster-issuer: letsencrypt-prod
+    cert-manager.io/cluster-issuer: letsencrypt-prod
     kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
+    kubernetes.io/tls-acme: "true"
 spec:
   rules:
-  - host: demo-active.35.241.71.1.xip.io
+  - host: demo-active.poc.awx.onl
     http:
       paths:
       - backend:
           serviceName: rollout-bluegreen-active
           servicePort: http
         path: /
-  # tls:
-  # - hosts:
-  #   - demo-active.35.241.71.1.xip.io
-  #   secretName: argocd-secret-demo-active
+  tls:
+  - hosts:
+    - demo-active.poc.awx.onl
+    secretName: tls-cert-demo-active
 
 ---
 apiVersion: extensions/v1beta1
@@ -27,19 +27,19 @@ kind: Ingress
 metadata:
   name: rollout-bluegreen-preview
   annotations:
-    # cert-manager.io/cluster-issuer: letsencrypt-prod
+    cert-manager.io/cluster-issuer: letsencrypt-prod
     kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
+    kubernetes.io/tls-acme: "true"
 spec:
   rules:
-  - host: demo-preview.35.241.71.1.xip.io
+  - host: demo-preview.poc.awx.onl
     http:
       paths:
       - backend:
           serviceName: rollout-bluegreen-preview
           servicePort: http
         path: /
-  # tls:
-  # - hosts:
-  #   - demo-preview.35.241.71.1.xip.io
-  #   secretName: argocd-secret-demo-preview
+  tls:
+  - hosts:
+    - demo-preview.poc.awx.onl
+    secretName: tls-cert-demo-preview
