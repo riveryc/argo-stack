@@ -1,20 +1,22 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argo-cd
+  name: istio-egress
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: infra
+  project: production
   source:
-    path: appservices/common/argocd
-    repoURL: https://github.com/riveryc/argo-stack.git
-    targetRevision: ingress-preinstall
+    path: manifests/charts/gateways/istio-egress
+    repoURL: https://github.com/istio/istio.git
+    targetRevision: '1.9.0'
   destination:
+    namespace: istio-system
     server: https://kubernetes.default.svc
-    namespace: argocd
   syncPolicy:
     automated:
       selfHeal: true
-      prune: false
+      prune: true
+    syncOptions:
+    - CreateNamespace=tru

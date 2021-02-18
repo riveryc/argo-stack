@@ -1,19 +1,19 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: ingress-nginx
+  name: istio-ingress
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: infra
-  destination:
-    namespace: ingress-nginx
-    server: 'https://kubernetes.default.svc'
+  project: production
   source:
-    repoURL: 'https://kubernetes.github.io/ingress-nginx'
-    targetRevision: '3.23.0'
-    chart: ingress-nginx
+    path: manifests/charts/gateways/istio-ingress
+    repoURL: https://github.com/istio/istio.git
+    targetRevision: '1.9.0'
+  destination:
+    namespace: istio-system
+    server: https://kubernetes.default.svc
   syncPolicy:
     automated:
       selfHeal: true
