@@ -10,7 +10,7 @@ spec:
   source:
     path: appservices/common/argocd
     repoURL: https://github.com/riveryc/argo-stack.git
-    targetRevision: ingress-preinstall
+    targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
