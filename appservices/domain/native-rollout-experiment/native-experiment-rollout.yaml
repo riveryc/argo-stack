@@ -53,4 +53,4 @@ spec:
             templateName: http-benchmark
             args:
             - name: host
-              value: native-rollout-experiment
+              value: native-rollout-experiment-canary

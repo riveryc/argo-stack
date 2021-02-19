@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: native-rollout-experiment
+  name: native-rollout-experiment-canary
 spec:
   ports:
   - port: 80
@@ -10,3 +10,17 @@ spec:
     name: http
   selector:
     app: preview
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: native-rollout-experiment
+spec:
+  ports:
+  - port: 80
+    targetPort: http
+    protocol: TCP
+    name: http
+  selector:
+    app: native-rollout-experiment
