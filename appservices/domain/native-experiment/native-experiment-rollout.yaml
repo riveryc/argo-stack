@@ -3,7 +3,7 @@ kind: Experiment
 metadata:
   name: native-experiment
 spec:
-  duration: 15m
+  duration: 5m
   templates:
   - name: purple
     replicas: 2
