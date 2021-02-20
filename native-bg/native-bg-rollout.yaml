@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: app-validation-service
+spec:
+  replicas: 3
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: app-validation-service
+  template:
+    metadata:
+      labels:
+        app: app-validation-service
+    spec:
+      containers:
+      - name: app-validation-service
+        image: argoproj/rollouts-demo:green
+        imagePullPolicy: Always
+        ports:
+        - name: http
+          containerPort: 8080
+          protocol: TCP
+  strategy:
+    blueGreen: 
+      activeService: app-validation-service-active
+      previewService: app-validation-service-preview
+      autoPromotionEnabled: false
+      # scaleDownDelaySeconds: 1h # default is 30
