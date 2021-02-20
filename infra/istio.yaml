@@ -13,7 +13,7 @@ spec:
     targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
-    namespace: istio-system
+    namespace: infra
   syncPolicy:
     automated:
       selfHeal: true

@@ -12,7 +12,7 @@ spec:
     repoURL: https://github.com/istio/istio.git
     targetRevision: 'release-1.9'
   destination:
-    namespace: istio-system
+    namespace: infra
     server: https://kubernetes.default.svc
   syncPolicy:
     automated:
