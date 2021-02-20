@@ -13,7 +13,7 @@ spec:
     targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
-    namespace: gtpn
+    namespace: dev
   syncPolicy:
     automated:
       selfHeal: true

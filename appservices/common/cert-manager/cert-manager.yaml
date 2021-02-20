@@ -29,7 +29,7 @@ spec:
       clientConfig:
         service:
           name: cert-manager-webhook
-          namespace: cert-manager
+          namespace: infra
           path: /convert
       conversionReviewVersions:
       - v1
@@ -836,7 +836,7 @@ spec:
       clientConfig:
         service:
           name: cert-manager-webhook
-          namespace: cert-manager
+          namespace: infra
           path: /convert
       conversionReviewVersions:
       - v1
@@ -2531,7 +2531,7 @@ spec:
       clientConfig:
         service:
           name: cert-manager-webhook
-          namespace: cert-manager
+          namespace: infra
           path: /convert
       conversionReviewVersions:
       - v1
@@ -8559,7 +8559,7 @@ spec:
       clientConfig:
         service:
           name: cert-manager-webhook
-          namespace: cert-manager
+          namespace: infra
           path: /convert
       conversionReviewVersions:
       - v1
@@ -16554,7 +16554,7 @@ spec:
       clientConfig:
         service:
           name: cert-manager-webhook
-          namespace: cert-manager
+          namespace: infra
           path: /convert
       conversionReviewVersions:
       - v1
@@ -24545,7 +24545,7 @@ spec:
       clientConfig:
         service:
           name: cert-manager-webhook
-          namespace: cert-manager
+          namespace: infra
           path: /convert
       conversionReviewVersions:
       - v1
@@ -25460,7 +25460,7 @@ metadata:
     app.kubernetes.io/instance: cert-manager
     app.kubernetes.io/name: cainjector
   name: cert-manager-cainjector
-  namespace: cert-manager
+  namespace: infra
 ---
 apiVersion: v1
 kind: ServiceAccount
@@ -25471,7 +25471,7 @@ metadata:
     app.kubernetes.io/instance: cert-manager
     app.kubernetes.io/name: cert-manager
   name: cert-manager
-  namespace: cert-manager
+  namespace: infra
 ---
 apiVersion: v1
 kind: ServiceAccount
@@ -25482,7 +25482,7 @@ metadata:
     app.kubernetes.io/instance: cert-manager
     app.kubernetes.io/name: webhook
   name: cert-manager-webhook
-  namespace: cert-manager
+  namespace: infra
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
@@ -26002,7 +26002,7 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: cert-manager-cainjector
-  namespace: cert-manager
+  namespace: infra
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
@@ -26020,7 +26020,7 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: cert-manager
-  namespace: cert-manager
+  namespace: infra
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
@@ -26038,7 +26038,7 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: cert-manager
-  namespace: cert-manager
+  namespace: infra
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
@@ -26056,7 +26056,7 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: cert-manager
-  namespace: cert-manager
+  namespace: infra
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
@@ -26074,7 +26074,7 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: cert-manager
-  namespace: cert-manager
+  namespace: infra
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
@@ -26092,7 +26092,7 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: cert-manager
-  namespace: cert-manager
+  namespace: infra
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
@@ -26110,7 +26110,7 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: cert-manager
-  namespace: cert-manager
+  namespace: infra
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
@@ -26178,7 +26178,7 @@ metadata:
     app.kubernetes.io/instance: cert-manager
     app.kubernetes.io/name: webhook
   name: cert-manager-webhook:dynamic-serving
-  namespace: cert-manager
+  namespace: infra
 rules:
 - apiGroups:
   - ""
@@ -26215,7 +26215,7 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: cert-manager-cainjector
-  namespace: cert-manager
+  namespace: infra
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
@@ -26235,7 +26235,7 @@ subjects:
 - apiGroup: ""
   kind: ServiceAccount
   name: cert-manager
-  namespace: cert-manager
+  namespace: infra
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
@@ -26246,7 +26246,7 @@ metadata:
     app.kubernetes.io/instance: cert-manager
     app.kubernetes.io/name: webhook
   name: cert-manager-webhook:dynamic-serving
-  namespace: cert-manager
+  namespace: infra
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
@@ -26255,7 +26255,7 @@ subjects:
 - apiGroup: ""
   kind: ServiceAccount
   name: cert-manager-webhook
-  namespace: cert-manager
+  namespace: infra
 ---
 apiVersion: v1
 kind: Service
@@ -26266,7 +26266,7 @@ metadata:
     app.kubernetes.io/instance: cert-manager
     app.kubernetes.io/name: cert-manager
   name: cert-manager
-  namespace: cert-manager
+  namespace: infra
 spec:
   ports:
   - port: 9402
@@ -26287,7 +26287,7 @@ metadata:
     app.kubernetes.io/instance: cert-manager
     app.kubernetes.io/name: webhook
   name: cert-manager-webhook
-  namespace: cert-manager
+  namespace: infra
 spec:
   ports:
   - name: https
@@ -26308,7 +26308,7 @@ metadata:
     app.kubernetes.io/instance: cert-manager
     app.kubernetes.io/name: cainjector
   name: cert-manager-cainjector
-  namespace: cert-manager
+  namespace: infra
 spec:
   replicas: 1
   selector:
@@ -26348,7 +26348,7 @@ metadata:
     app.kubernetes.io/instance: cert-manager
     app.kubernetes.io/name: cert-manager
   name: cert-manager
-  namespace: cert-manager
+  namespace: infra
 spec:
   replicas: 1
   selector:
@@ -26396,7 +26396,7 @@ metadata:
     app.kubernetes.io/instance: cert-manager
     app.kubernetes.io/name: webhook
   name: cert-manager-webhook
-  namespace: cert-manager
+  namespace: infra
 spec:
   replicas: 1
   selector:
@@ -26471,7 +26471,7 @@ webhooks:
   clientConfig:
     service:
       name: cert-manager-webhook
-      namespace: cert-manager
+      namespace: infra
       path: /mutate
   failurePolicy: Fail
   name: webhook.cert-manager.io
@@ -26507,7 +26507,7 @@ webhooks:
   clientConfig:
     service:
       name: cert-manager-webhook
-      namespace: cert-manager
+      namespace: infra
       path: /validate
   failurePolicy: Fail
   name: webhook.cert-manager.io
