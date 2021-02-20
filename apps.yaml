@@ -2,68 +2,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: infra
+  name: dev
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: infra
+  project: dev
   source:
-    repoURL: https://github.com/riveryc/argo-stack.git
+    repoURL: https://github.com/awx-zorian/argo-stack.git
     targetRevision: HEAD
-    path: infra
+    path: dev
   destination:
     server: https://kubernetes.default.svc
-    namespace: infra
+    namespace: gtpn
   syncPolicy:
     automated:
       selfHeal: true
       prune: true
-    syncOptions:
-    - CreateNamespace=true
-
----
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: production
-  namespace: argocd
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
-spec:
-  project: production
-  source:
-    repoURL: https://github.com/riveryc/argo-stack.git
-    targetRevision: HEAD
-    path: production
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: production
-  syncPolicy:
-    automated:
-      selfHeal: true
-      prune: true
-
----
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: staging
-  namespace: argocd
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
-spec:
-  project: staging
-  source:
-    repoURL: https://github.com/riveryc/argo-stack.git
-    targetRevision: HEAD
-    path: staging
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: staging
-  syncPolicy:
-    automated:
-      selfHeal: true
-      prune: true
-    syncOptions:
-    - CreateNamespace=true
