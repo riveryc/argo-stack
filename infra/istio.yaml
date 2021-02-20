@@ -9,7 +9,7 @@ spec:
   project: infra
   source:
     path: appservices/common/istio
-    repoURL: https://github.com/riveryc/argo-stack.git
+    repoURL: https://github.com/awx-zorian/argo-stack.git
     targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
