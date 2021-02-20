@@ -58,7 +58,7 @@ spec:
     spec:
       containers:
       - name: istio-canary
-        image: argoproj/rollouts-demo:yellow
+        image: argoproj/rollouts-demo:blue
         ports:
         - name: http
           containerPort: 8080
