@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: app-native-bg
+  name: app-validation-service
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: dev
   source:
-    path: native-bg
+    path: canary
     repoURL: https://github.com/awx-zorian/argo-stack.git
     targetRevision: HEAD
   destination:
