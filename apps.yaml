@@ -38,7 +38,7 @@ spec:
     path: dev
   destination:
     server: https://kubernetes.default.svc
-    namespace: gtpn
+    namespace: dev
   syncPolicy:
     automated:
       selfHeal: true
