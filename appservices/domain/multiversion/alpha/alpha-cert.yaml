@@ -3,6 +3,8 @@ kind: Certificate
 metadata:
   name: istio-ingressgateway-certs-alpha
   namespace: istio-system
+  annotations:
+    argocd.argoproj.io/sync-wave: "-3"
 spec:
   secretName: istio-ingressgateway-certs-alpha
   issuerRef:
