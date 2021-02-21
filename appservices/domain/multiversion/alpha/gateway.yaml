@@ -11,7 +11,7 @@ spec:
       name: http
       protocol: HTTP
     hosts:
-    - "alpha.poc.awx.onl"
+    - "alpha.istio-poc.awx.onl"
     tls:
       httpsRedirect: true
   - port:
@@ -19,7 +19,7 @@ spec:
       name: https-443
       protocol: HTTPS
     hosts:
-    - "alpha.poc.awx.onl"
+    - "alpha.istio-poc.awx.onl"
     tls:
       mode: SIMPLE
       credentialName: istio-ingressgateway-certs-alpha

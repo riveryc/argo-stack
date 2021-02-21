@@ -4,7 +4,7 @@ metadata:
   name: alpha
 spec:
   hosts:
-  - "alpha.poc.awx.onl"
+  - "alpha.istio-poc.awx.onl"
   gateways:
   - alpha-gateway
   http:

@@ -8,6 +8,6 @@ spec:
   issuerRef:
     name: letsencrypt-istio
     kind: ClusterIssuer
-  commonName: alpha.poc.awx.onl
+  commonName: alpha.istio-poc.awx.onl
   dnsNames:
-  - alpha.poc.awx.onl
+  - alpha.istio-poc.awx.onl
