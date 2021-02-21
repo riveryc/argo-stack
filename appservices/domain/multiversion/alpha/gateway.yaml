@@ -1,0 +1,25 @@
+apiVersion: networking.istio.io/v1beta1
+kind: Gateway
+metadata:
+  name: alpha-gateway
+spec:
+  selector:
+    istio: ingressgateway # use Istio default gateway implementation
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "alpha.poc.awx.onl"
+    tls:
+      httpsRedirect: true
+  - port:
+      number: 443
+      name: https-443
+      protocol: HTTPS
+    hosts:
+    - "alpha.poc.awx.onl"
+    tls:
+      mode: SIMPLE
+      credentialName: istio-ingressgateway-certs-alpha

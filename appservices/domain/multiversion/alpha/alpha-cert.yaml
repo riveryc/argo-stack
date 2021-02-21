@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: istio-ingressgateway-certs-alpha
+  namespace: istio-system
+spec:
+  secretName: istio-ingressgateway-certs-alpha
+  issuerRef:
+    name: letsencrypt-istio
+    kind: ClusterIssuer
+  commonName: alpha.poc.awx.onl
+  dnsNames:
+  - alpha.poc.awx.onl

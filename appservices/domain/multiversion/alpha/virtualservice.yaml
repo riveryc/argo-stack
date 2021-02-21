@@ -1,0 +1,22 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: alpha
+spec:
+  hosts:
+  - "alpha.poc.awx.onl"
+  gateways:
+  - alpha-gateway
+  http:
+  # - match:
+  #   - headers:
+  #       awxVer:
+  #         exact: uppercase
+  #   route:
+  #   - destination:
+  #       host: alpha
+  #       subset: uppercase
+  - route:
+    - destination:
+        host: alpha
+        subset: v1
