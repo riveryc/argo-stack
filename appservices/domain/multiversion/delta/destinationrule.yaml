@@ -1,0 +1,16 @@
+apiVersion: networking.istio.io/v1beta1
+kind: DestinationRule
+metadata:
+  name: delta
+spec:
+  host: delta
+  # trafficPolicy:
+  #   tls:
+  #     mode: ISTIO_MUTUAL
+  subsets:
+  - name: v1
+    labels:
+      version: v1
+  # - name: address-validation
+  #   labels:
+  #     version: address-validation

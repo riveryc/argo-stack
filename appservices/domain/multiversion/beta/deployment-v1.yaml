@@ -2,24 +2,24 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: alpha
+    app: beta
     version: v1
-  name: alpha-v1
+  name: beta-v1
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: alpha
+      app: beta
       version: v1
   template:
     metadata:
       labels:
-        app: alpha
+        app: beta
         version: v1
     spec:
       containers:
       - image: riveryc/app:v0.0.1
-        name: alpha
+        name: beta
         ports:
         - containerPort: 8000
         env:
@@ -28,6 +28,6 @@ spec:
             fieldRef:
               fieldPath: metadata.labels['version']
         - name: APP_CONTENT
-          value: alpha default version
+          value: beta default version
         - name: NEXT_HOP
-          value: http://beta
+          value: http://charlie

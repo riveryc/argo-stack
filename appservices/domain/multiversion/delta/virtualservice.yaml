@@ -1,0 +1,20 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: delta
+spec:
+  hosts:
+  - delta
+  http:
+  # - match:
+  #   - headers:
+  #       awxVer:
+  #         exact: address-validation
+  #   route:
+  #   - destination:
+  #       host: delta
+  #       subset: address-validation
+  - route:
+    - destination:
+        host: delta
+        subset: v1

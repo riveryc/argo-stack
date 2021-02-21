@@ -1,0 +1,20 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: beta
+spec:
+  hosts:
+  - beta
+  http:
+  # - match:
+  #   - headers:
+  #       awxVer:
+  #         exact: add-branding
+  #   route:
+  #   - destination:
+  #       host: beta
+  #       subset: add-branding
+  - route:
+    - destination:
+        host: beta
+        subset: v1
