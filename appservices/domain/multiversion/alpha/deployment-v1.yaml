@@ -29,5 +29,5 @@ spec:
               fieldPath: metadata.labels['version']
         - name: APP_CONTENT
           value: alpha default version
-        - name: NEXT_HOP
-          value: http://beta
+        # - name: NEXT_HOP
+        #   value: http://beta
