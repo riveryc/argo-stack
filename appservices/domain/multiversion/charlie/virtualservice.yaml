@@ -6,14 +6,14 @@ spec:
   hosts:
   - charlie
   http:
-  # - match:
-  #   - headers:
-  #       awxVer:
-  #         exact: random-code
-  #   route:
-  #   - destination:
-  #       host: charlie
-  #       subset: random-code
+  - match:
+    - headers:
+        awxVer:
+          exact: v2
+    route:
+    - destination:
+        host: charlie
+        subset: v2
   - route:
     - destination:
         host: charlie

@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: charlie
+    version: v2
+  name: charlie-v2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: charlie
+      version: v2
+  template:
+    metadata:
+      labels:
+        app: charlie
+        version: v2
+    spec:
+      containers:
+      - image: riveryc/app:v0.0.1
+        name: charlie
+        ports:
+        - containerPort: 8000
+        env:
+        - name: APP_VERSION
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.labels['version']
+        - name: APP_CONTENT
+          value: CHARLIE YE V2
+        - name: NEXT_HOP
+          value: http://delta
