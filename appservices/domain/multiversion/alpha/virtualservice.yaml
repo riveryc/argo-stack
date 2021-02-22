@@ -8,14 +8,14 @@ spec:
   gateways:
   - alpha-gateway
   http:
-  # - match:
-  #   - headers:
-  #       awxVer:
-  #         exact: v2
-  #   route:
-  #   - destination:
-  #       host: alpha
-  #       subset: v2
+  - match:
+    - headers:
+        awxVer:
+          exact: v2
+    route:
+    - destination:
+        host: alpha
+        subset: v2
   - route:
     - destination:
         host: alpha
