@@ -27,23 +27,23 @@ spec:
     spec:
       containers:
       - name: native-canary
-        - env:
-          - name: AWX_DATABASE_PASSWORD
-            value: elA2OUdaWlc5T0NiU0JYYWhm
-          - name: AWX_ID_REDIS_PASSWORD
-            value: QWlyd2FsbGV
-          - name: AWX_DATABASE_URL
-            value: jdbc:postgresql://pgm-j6cls6qo9321nr02132790.pg.rds.aliyuncs.com:1921/validation
-          - name: AWX_DATABASE_USERNAME
-            value: validation_rw
-          - name: AWX_ID_REDIS_ADDRESS
-            value: r-j6c7847899d2e1a4.redis.rds.aliyuncs.com
-          - name: AWX_ID_REDIS_PORT
-            value: "6379"
-          - name: AWx_ID_REDIS_DB
-            value: "1"
-          - name: SERVER_PORT
-            value: "8080"
+        env:
+        - name: AWX_DATABASE_PASSWORD
+          value: elA2OUdaWlc5T0NiU0JYYWhm
+        - name: AWX_ID_REDIS_PASSWORD
+          value: QWlyd2FsbGV
+        - name: AWX_DATABASE_URL
+          value: jdbc:postgresql://pgm-j6cls6qo9321nr02132790.pg.rds.aliyuncs.com:1921/validation
+        - name: AWX_DATABASE_USERNAME
+          value: validation_rw
+        - name: AWX_ID_REDIS_ADDRESS
+          value: r-j6c7847899d2e1a4.redis.rds.aliyuncs.com
+        - name: AWX_ID_REDIS_PORT
+          value: "6379"
+        - name: AWx_ID_REDIS_DB
+          value: "1"
+        - name: SERVER_PORT
+          value: "8080"
         image: asia.gcr.io/airwallex/app-validation-service:release-1.0.16
         imagePullPolicy: Always
         lifecycle:
@@ -90,10 +90,10 @@ spec:
           requests:
             cpu: 500m
             memory: 1Gi
-        terminationMessagePath: /dev/termination-log
-        terminationMessagePolicy: File
-        dnsPolicy: ClusterFirst
-        enableServiceLinks: true
-        restartPolicy: Always
-        serviceAccount: default
-        serviceAccountName: default
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      enableServiceLinks: true
+      restartPolicy: Always
+      serviceAccount: default
+      serviceAccountName: default
