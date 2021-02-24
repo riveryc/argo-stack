@@ -1,21 +1,21 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: native-canary-preview
+  name: app-validation-service
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
     kubernetes.io/ingress.class: nginx
     kubernetes.io/tls-acme: "true"
 spec:
   rules:
-  - host: native-canary-preview.poc.awx.onl
+  - host: app-validation-service.poc.awx.onl
     http:
       paths:
       - backend:
-          serviceName: native-canary-preview
+          serviceName: app-validation-service
           servicePort: http
         path: /
   tls:
   - hosts:
-    - native-canary-preview.poc.awx.onl
-    secretName: tls-cert-native-canary-preview
+    - app-validation-service.poc.awx.onl
+    secretName: tls-cert-app-validation-service

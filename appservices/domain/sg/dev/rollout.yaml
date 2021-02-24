@@ -1,12 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: native-canary
+  name: app-validation-service
 spec:
   replicas: 5
   strategy:
     canary:
-      canaryService: native-canary-preview
+      canaryService: app-validation-service-preview
       steps:
       - setWeight: 20
       - pause: {}
@@ -19,14 +19,14 @@ spec:
   revisionHistoryLimit: 2
   selector:
     matchLabels:
-      app: native-canary
+      app: app-validation-service
   template:
     metadata:
       labels:
-        app: native-canary
+        app: app-validation-service
     spec:
       containers:
-      - name: native-canary
+      - name: app-validation-service
         env:
         - name: AWX_DATABASE_PASSWORD
           value: elA2OUdaWlc5T0NiU0JYYWhm
