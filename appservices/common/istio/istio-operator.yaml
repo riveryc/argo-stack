@@ -8,7 +8,7 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: dev
+  project: infra
   source:
     path: manifests/charts/istio-operator
     repoURL: https://github.com/istio/istio.git
