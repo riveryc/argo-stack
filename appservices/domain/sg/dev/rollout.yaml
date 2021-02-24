@@ -44,7 +44,7 @@ spec:
           value: "1"
         - name: SERVER_PORT
           value: "8080"
-        image: asia.gcr.io/airwallex/app-validation-service:release-1.0.17
+        image: asia.gcr.io/airwallex/app-validation-service:zrelease-1.7.0-SNAPSHOT
         imagePullPolicy: Always
         lifecycle:
           preStop:
