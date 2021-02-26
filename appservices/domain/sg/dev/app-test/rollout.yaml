@@ -1,12 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: app-validation-service
+  name: app-test-service
 spec:
   replicas: {{ .Values.replicaCount }}
   strategy:
     canary:
-      canaryService: app-validation-service-preview
+      canaryService: app-test-service-preview
       steps:
       - setWeight: 20
       - pause: {}
@@ -19,14 +19,14 @@ spec:
   revisionHistoryLimit: 2
   selector:
     matchLabels:
-      app: app-validation-service
+      app: app-test-service
   template:
     metadata:
       labels:
-        app: app-validation-service
+        app: app-test-service
     spec:
       containers:
-      - name: app-validation-service
+      - name: app-test-service
         env:
         - name: AWX_DATABASE_PASSWORD
           value: elA2OUdaWlc5T0NiU0JYYWhm
