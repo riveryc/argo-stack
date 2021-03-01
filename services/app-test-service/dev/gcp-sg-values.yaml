@@ -7,7 +7,7 @@ serviceRegion: sg
 
 myEnv:
   AWX_DATABASE_PASSWORD:
-    value: adsfasdf
+    value: asdfasdfas
   AWX_ID_REDIS_PASSWORD:
     value: QWlyd2FsbGV
   AWX_DATABASE_URL:
@@ -17,7 +17,6 @@ myEnv:
   AWX_ID_REDIS_ADDRESS:
     value: r-j6c7847899d2e1a4.redis.rds.aliyuncs.com
   AWX_ID_REDIS_PORT:
-    value: 6379
+    value: "6379"
   AWx_ID_REDIS_DB:
-    value: 3
-
+    value: "1"

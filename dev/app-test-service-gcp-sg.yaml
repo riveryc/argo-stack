@@ -13,9 +13,9 @@ spec:
     targetRevision: HEAD
     helm:
       valueFiles:
-      - ../values.yaml
-      - values.yaml
-      - gcp-sg-values.yaml
+        - ../values.yaml
+        - values.yaml
+        - gcp-sg-values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: dev
@@ -24,5 +24,5 @@ spec:
       selfHeal: true
       prune: true
     syncOptions:
-    - CreateNamespace=true
+      - CreateNamespace=true
     
