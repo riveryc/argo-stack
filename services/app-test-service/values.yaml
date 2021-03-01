@@ -2,21 +2,26 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-cloudPlatform: gcp
-serviceRegion: sg
+replicaCount: 3
+
+myimage:
+
+serviceName: app-test-service
 
 myEnv:
   AWX_DATABASE_PASSWORD:
-    value: 222
+    value:
   AWX_ID_REDIS_PASSWORD:
-    value: QWlyd2FsbGV
+    value:
   AWX_DATABASE_URL:
-    value: lasjdfljsadlfjaslkdjfla
+    value:
   AWX_DATABASE_USERNAME:
-    value: validation_rw
+    value:
   AWX_ID_REDIS_ADDRESS:
-    value: r-j6c7847899d2e1a4.redis.rds.aliyuncs.com
+    value:
   AWX_ID_REDIS_PORT:
-    value: "6379"
+    value:
   AWx_ID_REDIS_DB:
-    value: "3"
+    value:
+  SERVER_PORT:
+    value: "8080"

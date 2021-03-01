@@ -13,7 +13,7 @@ spec:
     targetRevision: HEAD
     helm:
       valueFiles:
-      - ../global-values.yaml
+      - ../values.yaml
       - values.yaml
       - gcp-sg-values.yaml
   destination:
