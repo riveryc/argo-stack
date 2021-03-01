@@ -1,12 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: {{ required (printf "%s missing" .Values.serviceName) .Values.serviceName }}
+  name: app-test-service
 spec:
   replicas: {{ .Values.replicaCount }}
   strategy:
     canary:
-      canaryService: {{ required (printf "%s missing" .Values.serviceName) .Values.serviceName }}-preview
+      canaryService: app-test-service-preview
       steps:
       - setWeight: 20
       - pause: {}
@@ -19,14 +19,14 @@ spec:
   revisionHistoryLimit: 2
   selector:
     matchLabels:
-      app: {{ required (printf "%s missing" .Values.serviceName) .Values.serviceName }}
+      app: app-test-service
   template:
     metadata:
       labels:
-        app: {{ required (printf "%s missing" .Values.serviceName) .Values.serviceName }}
+        app: app-test-service
     spec:
       containers:
-      - name: {{ required (printf "%s missing" .Values.serviceName) .Values.serviceName }}
+      - name: app-test-service
       {{- if .Values.myEnv }}
         env:
         {{- range $k, $v := .Values.myEnv }}

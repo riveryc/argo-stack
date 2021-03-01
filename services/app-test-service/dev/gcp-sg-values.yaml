@@ -11,7 +11,7 @@ myEnv:
   AWX_ID_REDIS_PASSWORD:
     value: QWlyd2FsbGV
   AWX_DATABASE_URL:
-    value: lasjdfljsadlfjaslkdjfla
+    value: jdbc:postgresql://pgm-j6cls6qo9321nr02132790.pg.rds.aliyuncs.com:1921/validation
   AWX_DATABASE_USERNAME:
     value: validation_rw
   AWX_ID_REDIS_ADDRESS:
