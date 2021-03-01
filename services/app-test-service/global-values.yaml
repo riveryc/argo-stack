@@ -13,8 +13,6 @@ myEnv:
     value:
   AWX_ID_REDIS_PASSWORD:
     value:
-  AWX_DATABASE_URL:
-    value:
   AWX_DATABASE_USERNAME:
     value:
   AWX_ID_REDIS_ADDRESS:
