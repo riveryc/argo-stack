@@ -2,9 +2,6 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-serviceName: app-test-service
-myimage: asia.gcr.io/airwallex/app-validation-service:zrelease-1.7.0-SNAPSHOT
-
 cloudPlatform: gcp
 serviceRegion: sg
 
@@ -20,8 +17,7 @@ myEnv:
   AWX_ID_REDIS_ADDRESS:
     value: r-j6c7847899d2e1a4.redis.rds.aliyuncs.com
   AWX_ID_REDIS_PORT:
-    value: "6379"
+    value: 6379
   AWx_ID_REDIS_DB:
-    value: "3"
-  SERVER_PORT:
-    value: "8080"
+    value: 3
+
