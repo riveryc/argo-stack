@@ -1,20 +1,21 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: app-test-service
+  name: app-test-service-gcp-sg
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: dev
   source:
-    path: appservices/domain/sg/dev/app-test-service
+    path: services/app-test-service/dev
     repoURL: https://github.com/awx-zorian/argo-stack.git
     targetRevision: HEAD
     helm:
       valueFiles:
+      - ../global-values.yaml
       - values.yaml
-      - ../../../../common/values.yaml
+      - gcp-sg-values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: dev

@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {{ required (printf "%s missing" .Values.serviceName) .Values.serviceName }}
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    kubernetes.io/ingress.class: nginx
+    kubernetes.io/tls-acme: "true"
+spec:
+  rules:
+  - host: {{ required (printf "%s missing" .Values.serviceName) .Values.serviceName }}-{{ required (printf "%s missing" .Values.cloudPlatform) .Values.cloudPlatform }}-{{ required (printf "%s missing" .Values.serviceRegion) .Values.serviceRegion }}.awx.onl
+    http:
+      paths:
+      - backend:
+          serviceName: {{ required (printf "%s missing" .Values.serviceName) .Values.serviceName }}
+          servicePort: http
+        path: /
+  tls:
+  - hosts:
+    - {{ required (printf "%s missing" .Values.serviceName) .Values.serviceName }}-{{ required (printf "%s missing" .Values.cloudPlatform) .Values.cloudPlatform }}-{{ required (printf "%s missing" .Values.serviceRegion) .Values.serviceRegion }}.poc.awx.onl
+    secretName: tls-cert-{{ required (printf "%s missing" .Values.serviceName) .Values.serviceName }}-{{ required (printf "%s missing" .Values.cloudPlatform) .Values.cloudPlatform }}-{{ required (printf "%s missing" .Values.serviceRegion) .Values.serviceRegion }}

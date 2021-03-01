@@ -1,12 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: app-test-service
+  name: {{ required (printf "%s missing" .Values.serviceName) .Values.serviceName }}
 spec:
   replicas: {{ .Values.replicaCount }}
   strategy:
     canary:
-      canaryService: app-test-service-preview
+      canaryService: {{ required (printf "%s missing" .Values.serviceName) .Values.serviceName }}-preview
       steps:
       - setWeight: 20
       - pause: {}
@@ -19,31 +19,21 @@ spec:
   revisionHistoryLimit: 2
   selector:
     matchLabels:
-      app: app-test-service
+      app: {{ required (printf "%s missing" .Values.serviceName) .Values.serviceName }}
   template:
     metadata:
       labels:
-        app: app-test-service
+        app: {{ required (printf "%s missing" .Values.serviceName) .Values.serviceName }}
     spec:
       containers:
-      - name: app-test-service
+      - name: {{ required (printf "%s missing" .Values.serviceName) .Values.serviceName }}
+      {{- if .Values.myEnv }}
         env:
-        - name: AWX_DATABASE_PASSWORD
-          value: elA2OUdaWlc5T0NiU0JYYWhm
-        - name: AWX_ID_REDIS_PASSWORD
-          value: QWlyd2FsbGV
-        - name: AWX_DATABASE_URL
-          value: jdbc:postgresql://pgm-j6cls6qo9321nr02132790.pg.rds.aliyuncs.com:1921/validation
-        - name: AWX_DATABASE_USERNAME
-          value: validation_rw
-        - name: AWX_ID_REDIS_ADDRESS
-          value: r-j6c7847899d2e1a4.redis.rds.aliyuncs.com
-        - name: AWX_ID_REDIS_PORT
-          value: "6379"
-        - name: AWx_ID_REDIS_DB
-          value: "1"
-        - name: SERVER_PORT
-          value: "8080"
+        {{- range $k, $v := .Values.myEnv }}
+        - name: {{ $k }}
+          value: {{ required (printf "%s missing" $k) $v.value }}
+        {{- end }}
+      {{- end }}
         image: {{ .Values.myimage }}
         imagePullPolicy: Always
         lifecycle:

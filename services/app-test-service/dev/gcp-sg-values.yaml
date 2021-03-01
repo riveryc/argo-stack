@@ -1,0 +1,22 @@
+# Default values for helm-guestbook.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+cloudPlatform: gcp
+serviceRegion: sg
+
+myEnv:
+  AWX_DATABASE_PASSWORD:
+    value: 222
+  AWX_ID_REDIS_PASSWORD:
+    value: QWlyd2FsbGV
+  AWX_DATABASE_URL:
+    value: jdbc:postgresql://pgm-j6cls6qo9321nr02132790.pg.rds.aliyuncs.com:1921/validation
+  AWX_DATABASE_USERNAME:
+    value: validation_rw
+  AWX_ID_REDIS_ADDRESS:
+    value: r-j6c7847899d2e1a4.redis.rds.aliyuncs.com
+  AWX_ID_REDIS_PORT:
+    value: "6379"
+  AWx_ID_REDIS_DB:
+    value: "3"
