@@ -31,8 +31,7 @@ spec:
         - name: AWX_DATABASE_PASSWORD
           value: 222
         - name: AWX_DATABASE_URL
-          value: >-
-            jdbc:postgresql://pgm-j6cls6qo9321nr02132790.pg.rds.aliyuncs.com:1921/validation
+          value: jdbc:postgresql://pgm-j6cls6qo9321nr02132790.pg.rds.aliyuncs.com:1921/validation
         - name: AWX_DATABASE_USERNAME
           value: validation_rw
         - name: AWX_ID_REDIS_ADDRESS
