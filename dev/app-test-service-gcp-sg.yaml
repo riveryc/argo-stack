@@ -13,6 +13,8 @@ spec:
     targetRevision: HEAD
     helm:
       valueFiles:
+      - ../values.yaml
+      - values.yaml
       - gcp-sg-values.yaml
   destination:
     server: https://kubernetes.default.svc
