@@ -31,7 +31,7 @@ spec:
         env:
         {{- range $k, $v := .Values.myEnv }}
           - name: {{ $k }}
-            value: {{ required (printf "%s missing" $k) $v.value }}
+            value: {{ required (printf "%s missing" $k) ($v.value | quote) }}
         {{- end }}
       {{- end }}
         image: {{ .Values.myimage }}
