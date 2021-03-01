@@ -10,7 +10,7 @@ serviceRegion: sg
 
 myEnv:
   AWX_DATABASE_PASSWORD:
-    value: 222
+    value: adsfasdf
   AWX_ID_REDIS_PASSWORD:
     value: QWlyd2FsbGV
   AWX_DATABASE_URL:
