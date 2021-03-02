@@ -1,21 +1,21 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: {{ required "service name missing" .Values.serviceName }}
+  name: {{ required "service name is missing" .Values.serviceName }}
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
     kubernetes.io/ingress.class: nginx
     kubernetes.io/tls-acme: "true"
 spec:
   rules:
-  - host: {{ required "service name missing" .Values.serviceName }}-{{ required "cloud missing" .Values.cloudPlatform }}-{{ required "region missing" .Values.serviceRegion }}.awx.onl
+  - host: {{ required "service name is missing" .Values.serviceName }}-{{ required "cloud platform is missing" .Values.cloudProvider.platform }}-{{ required "region is missing" .Values.cloudProvider.region }}.awx.onl
     http:
       paths:
       - backend:
-          serviceName: {{ required "service name missing" .Values.serviceName }}
+          serviceName: {{ required "service name is missing" .Values.serviceName }}
           servicePort: http
         path: /
   tls:
   - hosts:
-    - {{ required "service name missing" .Values.serviceName }}-{{ required "cloud missing" .Values.cloudPlatform }}-{{ required "region missing" .Values.serviceRegion }}.poc.awx.onl
-    secretName: tls-cert-{{ required "service name missing" .Values.serviceName }}-{{ required "cloud missing" .Values.cloudPlatform }}-{{ required "region missing" .Values.serviceRegion }}
+    - {{ required "service name is missing" .Values.serviceName }}-{{ required "cloud platform is missing" .Values.cloudProvider.platform }}-{{ required "region is missing" .Values.cloudProvider.region }}.poc.awx.onl
+    secretName: tls-cert-{{ required "service name missing" .Values.serviceName }}-{{ required "cloud platform is missing" .Values.cloudProvider.platform }}-{{ required "region is missing" .Values.cloudProvider.region }}

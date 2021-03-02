@@ -1,11 +1,9 @@
-# Default values for helm-guestbook.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
 
-cloudPlatform: aliyun
-serviceRegion: hk
+cloudProvider:
+  platform: aliyun
+  region: hk
 
-myEnv:
+environment:
   AWX_DATABASE_PASSWORD:
     value: 111
   AWX_ID_REDIS_PASSWORD:

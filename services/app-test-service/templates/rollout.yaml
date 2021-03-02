@@ -1,12 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: {{ required "service name missing" .Values.serviceName }}
+  name: {{ required "service name is missing" .Values.serviceName }}
 spec:
   replicas: {{ .Values.replicaCount }}
   strategy:
     canary:
-      canaryService: {{ required "service name missing" .Values.serviceName }}-preview
+      canaryService: {{ required "service name is missing" .Values.serviceName }}-preview
       steps:
         - setWeight: 20
         - pause: {}
@@ -19,30 +19,29 @@ spec:
   revisionHistoryLimit: 2
   selector:
     matchLabels:
-      app: {{ required "service name missing" .Values.serviceName }}
+      app: {{ required "service name is missing" .Values.serviceName }}
   template:
     metadata:
       labels:
-        app: {{ required "service name missing" .Values.serviceName }}
+        app: {{ required "service name is missing" .Values.serviceName }}
     spec:
       containers:
-      - name: {{ required "service name missing" .Values.serviceName }}
-      {{- if .Values.myEnv }}
+      - name: {{ required "service name is missing" .Values.serviceName }}
+{{- if .Values.environment }}
         env:
-        {{- range $k, $v := .Values.myEnv }}
+{{- range $k, $v := .Values.environment }}
           - name: {{ $k }}
             value: {{ required (printf "%s missing" $k) ($v.value | quote) }}
-        {{- end }}
-      {{- end }}
-        image: {{ .Values.myimage }}
+{{- end }}
+{{- end }}
+        image: {{ required "image repository is missing" .Values.image.repository }}:{{ required "image tag is missing" .Values.image.tag }}
         imagePullPolicy: Always
+{{- if .Values.resources }}
         resources:
-          limits:
-            cpu: 2500m
-            memory: 2Gi
-          requests:
-            cpu: 500m
-            memory: 1Gi
+{{ toYaml .Values.resources | indent 10 }}
+{{- else }}
+{{ fail "no resource definition" }}
+{{- end }}
       terminationMessagePath: /dev/termination-log
       terminationMessagePolicy: File
       dnsPolicy: ClusterFirst
