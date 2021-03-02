@@ -8,14 +8,14 @@ metadata:
 spec:
   project: dev
   source:
-    path: services/app-test-service/dev
+    path: services/app-test-service
     repoURL: https://github.com/awx-zorian/argo-stack.git
     targetRevision: HEAD
     helm:
       valueFiles:
-        - ../values.yaml
         - values.yaml
-        - gcp-sg-values.yaml
+        - dev/values.yaml
+        - dev/gcp-sg-values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: dev
