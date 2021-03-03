@@ -1,0 +1,4 @@
+include:
+  - project: 'gtpn/airwallex-gtpn-dev'
+    ref: master
+    file: '/gitlab/pipeline/app-unified.yml'
