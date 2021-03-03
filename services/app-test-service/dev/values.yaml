@@ -2,4 +2,4 @@
 replicaCount: 1
 
 image:
-  tag: blue
+  tag: red
