@@ -1,5 +1,3 @@
-
 replicaCount: 3
-
 image:
-  tag:
+  tag: ztest-cd_implementation-167496
