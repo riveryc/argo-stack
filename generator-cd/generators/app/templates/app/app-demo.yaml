@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: <%= projectName %>-<%= cloudPlatform %>-<%= region %>
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: dev
+  source:
+    path: service-template
+    repoURL: https://github.com/awx-zorian/argo-stack.git
+    targetRevision: HEAD
+    helm:
+      valueFiles:
+        - ../services/<%= projectName %>/values.yaml
+        - ../services/<%= projectName %>/demo/values.yaml
+        - ../services/<%= projectName %>/demo/<%= cloudPlatform %>-<%= region %>-values.yaml
+  destination:
+    server: <%= clusterAddress %>
+    namespace: dev
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
+    

@@ -1,0 +1,9 @@
+{
+  "generator-kotlin": {
+    "projectName": "myservice",
+    "appName": "myapp",
+    "companyName": "mycompany",
+    "domainName": "gtpn",
+    "buildType": "gradle"
+  }
+}

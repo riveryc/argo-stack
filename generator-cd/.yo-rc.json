@@ -1,0 +1,8 @@
+{
+  "generator-cd": {
+    "projectName": "app-validation-service",
+    "cloudPlatform": "gcp",
+    "region": "sg",
+    "clusterAddress": "https://kubernetes.default.svc"
+  }
+}

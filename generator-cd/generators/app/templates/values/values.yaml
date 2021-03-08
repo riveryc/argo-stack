@@ -1,0 +1,22 @@
+
+serviceName: <%= projectName %>
+
+image:
+  repository: asia.gcr.io/airwallex/<%= projectName %>
+  tag:
+
+replicaCount: 3
+
+cloudProvider:
+  platform:
+  region:
+
+resources:
+  limits:
+    cpu: 2500m
+    memory: 2Gi
+  requests:
+    cpu: 500m
+    memory: 1Gi
+
+environment:

@@ -1,6 +1,6 @@
 "use strict";
 const Generator = require("yeoman-generator");
-const prompts = require('./prompt');
+//const prompts = require('./prompt');
 
 module.exports = class extends Generator {
   constructor(args, opts) {
@@ -12,8 +12,13 @@ module.exports = class extends Generator {
     this.log("Generating SpringBoot Application");
   }
 
-  get prompting() {
-    return prompts.prompting;
+//  get prompting() {
+//    return prompts.prompting;
+//  }
+
+  configuring() {
+    const userConfig = this.config.getAll();
+    Object.assign(this.configOptions, userConfig);
   }
 
   writing() {
