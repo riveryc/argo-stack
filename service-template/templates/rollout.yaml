@@ -27,6 +27,11 @@ spec:
     spec:
       containers:
       - name: {{ required "service name is missing" .Values.serviceName }}
+{{- if .Values.secretEnvironment }}
+        envFrom:
+          - secretRef:
+              name: {{ .Values.secretEnvironment }}
+{{- end }}
 {{- if .Values.environment }}
         env:
 {{- range $k, $v := .Values.environment }}

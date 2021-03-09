@@ -20,3 +20,5 @@ resources:
     memory: 1Gi
 
 environment:
+
+secretEnvironment:

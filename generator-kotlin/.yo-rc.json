@@ -1,5 +1,6 @@
 {
   "generator-kotlin": {
+    "targetFolder": "../test",
     "projectName": "myservice",
     "appName": "myapp",
     "companyName": "mycompany",

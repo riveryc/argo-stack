@@ -2,3 +2,17 @@
 cloudProvider:
   platform: gcp
   region: sg
+
+environment:
+  AWX_DATABASE_URL:
+    value: a
+  AWX_DATABASE_USERNAME:
+    value: b
+  AWX_ID_REDIS_ADDRESS:
+    value: c
+  AWX_ID_REDIS_PORT:
+    value: "6379"
+  AWx_ID_REDIS_DB:
+    value: "1"
+
+secretEnvironment: app-validation-service-dev

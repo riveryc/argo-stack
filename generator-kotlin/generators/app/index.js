@@ -1,6 +1,5 @@
 "use strict";
 const Generator = require("yeoman-generator");
-//const prompts = require('./prompt');
 
 module.exports = class extends Generator {
   constructor(args, opts) {
@@ -11,10 +10,6 @@ module.exports = class extends Generator {
   initializing() {
     this.log("Generating SpringBoot Application");
   }
-
-//  get prompting() {
-//    return prompts.prompting;
-//  }
 
   configuring() {
     const userConfig = this.config.getAll();
@@ -27,13 +22,14 @@ module.exports = class extends Generator {
     var projectName = this.configOptions.projectName
     var appName = this.configOptions.appName
     var buildType = this.configOptions.buildType
+    var targetFolder = this.configOptions.targetFolder
 
     var path = ("com." + companyName + "." + domainName + "." + appName).replace(/\./g, '/')
 
     if (buildType === "gradle") {
       this.fs.copyTpl(
         this.templatePath("build/gradle/**"),
-        this.destinationPath(projectName + "/"),
+        this.destinationPath(targetFolder + "/"),
         this.configOptions,
         null,
         { globOptions: { dot: true } }
@@ -41,62 +37,62 @@ module.exports = class extends Generator {
 
       this.fs.copyTpl(
         this.templatePath("app-start/build/gradle"),
-        this.destinationPath(projectName + "/" + projectName + "-start"),
+        this.destinationPath(targetFolder + "/" + projectName + "-start"),
         this.configOptions
       );
 
       this.fs.copyTpl(
         this.templatePath("app-sdk/build/gradle"),
-        this.destinationPath(projectName + "/" + projectName + "-sdk"),
+        this.destinationPath(targetFolder + "/" + projectName + "-sdk"),
         this.configOptions
       );
     }
 
     this.fs.copyTpl(
       this.templatePath("app-start/src"),
-      this.destinationPath(projectName + "/" + projectName + "-start/src/main/kotlin/" + path),
+      this.destinationPath(targetFolder + "/" + projectName + "-start/src/main/kotlin/" + path),
       this.configOptions
     );
 
     this.fs.copyTpl(
       this.templatePath("app-start/src-resource"),
-      this.destinationPath(projectName + "/" + projectName + "-start/src/main/resources"),
+      this.destinationPath(targetFolder + "/" + projectName + "-start/src/main/resources"),
       this.configOptions
     );
 
     this.fs.copyTpl(
       this.templatePath("app-sdk/src"),
-      this.destinationPath(projectName + "/" + projectName + "-sdk/src/main/kotlin/" + path + "/sdk"),
+      this.destinationPath(targetFolder + "/" + projectName + "-sdk/src/main/kotlin/" + path + "/sdk"),
       this.configOptions
     );
 
     this.fs.copyTpl(
       this.templatePath("app-sdk/src-resource"),
-      this.destinationPath(projectName + "/" + projectName + "-sdk/src/main/resources/"),
+      this.destinationPath(targetFolder + "/" + projectName + "-sdk/src/main/resources/"),
       this.configOptions
     );
 
     this.fs.copyTpl(
       this.templatePath("app-start/test"),
-      this.destinationPath(projectName + "/" + projectName + "-start/src/test/kotlin/" + path + "/test"),
+      this.destinationPath(targetFolder + "/" + projectName + "-start/src/test/kotlin/" + path + "/test"),
       this.configOptions
     );
 
     this.fs.copyTpl(
       this.templatePath("app-start/test-resource"),
-      this.destinationPath(projectName + "/" + projectName + "-start/src/test/resources"),
+      this.destinationPath(targetFolder + "/" + projectName + "-start/src/test/resources"),
       this.configOptions
     );
 
     this.fs.copyTpl(
       this.templatePath("app-sdk/test"),
-      this.destinationPath(projectName + "/" + projectName + "-sdk/src/test/kotlin/" + path + "/sdk/test"),
+      this.destinationPath(targetFolder + "/" + projectName + "-sdk/src/test/kotlin/" + path + "/sdk/test"),
       this.configOptions
     );
 
     this.fs.copyTpl(
       this.templatePath("app-sdk/test-resource"),
-      this.destinationPath(projectName + "/" + projectName + "-sdk/src/test/resources"),
+      this.destinationPath(targetFolder + "/" + projectName + "-sdk/src/test/resources"),
       this.configOptions
     );
   }
