@@ -1,6 +1,7 @@
 {
   "generator-airwallex": {
     "targetFolder": "test",
+    "namespaceName": "zorian.li",
     "projectName": "myservice",
     "appName": "myapp",
     "companyName": "mycompany",
