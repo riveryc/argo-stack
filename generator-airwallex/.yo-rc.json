@@ -1,6 +1,6 @@
 {
   "generator-airwallex": {
-    "namespaceName": "zorian-test",
+    "namespaceName": "gtpn-platform",
     "projectName": "app-test-1-service",
     "appName": "testapp",
     "companyName": "airwallex",
