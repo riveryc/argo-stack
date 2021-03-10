@@ -1,13 +1,11 @@
 {
   "generator-airwallex": {
-    "targetFolder": "test",
     "namespaceName": "zorian.li",
-    "projectName": "myservice",
-    "appName": "myapp",
-    "companyName": "mycompany",
+    "projectName": "app-test-1-service",
+    "appName": "testapp",
+    "companyName": "airwallex",
     "domainName": "gtpn",
     "buildType": "gradle",
-
     "locations": [
       {
         "cloudPlatform": "gcp",
@@ -20,5 +18,6 @@
         "clusterAddress": "https://kubernetes.default.svc"
       }
     ]
-  }
+  },
+  "targetFolder": "../../template"
 }
