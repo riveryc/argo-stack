@@ -1,6 +1,6 @@
 {
   "generator-airwallex": {
-    "namespaceName": "zorian.li",
+    "namespaceName": "zorian-test",
     "projectName": "app-test-1-service",
     "appName": "testapp",
     "companyName": "airwallex",
