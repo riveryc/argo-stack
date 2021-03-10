@@ -34,8 +34,6 @@ module.exports = class extends Generator {
       this.configOptions.region = location.region
       this.configOptions.clusterAddress = location.clusterAddress
 
-      console.log(this.configOptions)
-
       this.fs.copyTpl(
         this.templatePath("app/app-dev.yaml"),
         this.destinationPath(targetFolder + "/dev/" + projectName + "-" + cloudPlatform + "-" + region + ".yaml"),
