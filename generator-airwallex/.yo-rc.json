@@ -1,6 +1,5 @@
 {
   "generator-airwallex": {
-    "targetFolder": "../../template",
     "namespaceName": "zorian.li",
     "projectName": "app-test-1-service",
     "appName": "testapp",
@@ -18,6 +17,7 @@
         "region": "hk",
         "clusterAddress": "https://kubernetes.default.svc"
       }
-    ]
+    ],
+    "targetFolder": "../../template"
   }
 }
