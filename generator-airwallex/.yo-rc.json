@@ -1,0 +1,23 @@
+{
+  "generator-airwallex": {
+    "targetFolder": "test",
+    "projectName": "myservice",
+    "appName": "myapp",
+    "companyName": "mycompany",
+    "domainName": "gtpn",
+    "buildType": "gradle",
+
+    "locations": [
+      {
+        "cloudPlatform": "gcp",
+        "region": "sg",
+        "clusterAddress": "https://kubernetes.default.svc"
+      },
+      {
+        "cloudPlatform": "ali",
+        "region": "hk",
+        "clusterAddress": "https://kubernetes.default.svc"
+      }
+    ]
+  }
+}

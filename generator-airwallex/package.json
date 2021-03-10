@@ -1,5 +1,5 @@
 {
-  "name": "generator-kotlin",
+  "name": "generator-airwallex",
   "version": "0.0.1",
   "description": "A Yeoman generator for generating SpringBoot microservices",
   "files": [
