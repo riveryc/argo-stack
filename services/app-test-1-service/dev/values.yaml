@@ -1,3 +1,3 @@
 replicaCount: 1
 image:
-  tag: feature-test_1-170615
+  tag: feature-test_1-170802
