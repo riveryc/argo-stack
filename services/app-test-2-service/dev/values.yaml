@@ -1,3 +1,3 @@
 replicaCount: 1
 image:
-  tag: feature-test_update-170242
+  tag: develop-170256
