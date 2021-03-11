@@ -1,3 +1,0 @@
-replicaCount: 1
-image:
-  tag: develop-170256

@@ -1,4 +1,0 @@
-
-cloudProvider:
-  platform: gcp
-  region: sg
