@@ -1,12 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: {{ required "service name is missing" .Values.serviceName }}
+  name: {{ required "service name is missing" .Values.serviceName }}-{{ required "cloud platform is missing" .Values.cloudProvider.platform }}-{{ required "region is missing" .Values.cloudProvider.region }}
 spec:
   replicas: {{ .Values.replicaCount }}
   strategy:
     canary:
-      canaryService: {{ required "service name is missing" .Values.serviceName }}-preview
+      canaryService: {{ required "service name is missing" .Values.serviceName }}-{{ required "cloud platform is missing" .Values.cloudProvider.platform }}-{{ required "region is missing" .Values.cloudProvider.region }}-preview
       steps:
         - setWeight: 20
         - pause: {}
@@ -19,14 +19,14 @@ spec:
   revisionHistoryLimit: 2
   selector:
     matchLabels:
-      app: {{ required "service name is missing" .Values.serviceName }}
+      app: {{ required "service name is missing" .Values.serviceName }}-{{ required "cloud platform is missing" .Values.cloudProvider.platform }}-{{ required "region is missing" .Values.cloudProvider.region }}
   template:
     metadata:
       labels:
-        app: {{ required "service name is missing" .Values.serviceName }}
+        app: {{ required "service name is missing" .Values.serviceName }}-{{ required "cloud platform is missing" .Values.cloudProvider.platform }}-{{ required "region is missing" .Values.cloudProvider.region }}
     spec:
       containers:
-      - name: {{ required "service name is missing" .Values.serviceName }}
+      - name: {{ required "service name is missing" .Values.serviceName }}-{{ required "cloud platform is missing" .Values.cloudProvider.platform }}-{{ required "region is missing" .Values.cloudProvider.region }}
 {{- if .Values.secretEnvironment }}
         envFrom:
           - secretRef:
