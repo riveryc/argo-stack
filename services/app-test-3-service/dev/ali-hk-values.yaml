@@ -1,0 +1,4 @@
+
+cloudProvider:
+  platform: ali
+  region: hk

@@ -1,0 +1,24 @@
+
+serviceName: app-test-3-service
+
+image:
+  repository: asia.gcr.io/airwallex/app-test-3-service
+  tag:
+
+replicaCount: 3
+
+cloudProvider:
+  platform:
+  region:
+
+resources:
+  limits:
+    cpu: 2500m
+    memory: 2Gi
+  requests:
+    cpu: 500m
+    memory: 1Gi
+
+environment:
+
+secretEnvironment:
