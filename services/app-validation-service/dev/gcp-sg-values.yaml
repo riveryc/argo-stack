@@ -5,11 +5,11 @@ cloudProvider:
 
 environment:
   AWX_DATABASE_URL:
-    value: a
+    value: jdbc:postgresql://10.14.201.40:5432/validation
   AWX_DATABASE_USERNAME:
-    value: b
+    value: validation_rw
   AWX_ID_REDIS_ADDRESS:
-    value: c
+    value: 10.14.237.3
   AWX_ID_REDIS_PORT:
     value: "6379"
   AWx_ID_REDIS_DB:
