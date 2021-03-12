@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app-test-5-service-gcp-sg
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: dev
+  source:
+    path: service-template
+    repoURL: https://github.com/awx-zorian/argo-stack.git
+    targetRevision: HEAD
+    helm:
+      valueFiles:
+        - ../services/app-test-5-service/values.yaml
+        - ../services/app-test-5-service/dev/values.yaml
+        - ../services/app-test-5-service/dev/gcp-sg-values.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: dev
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
+    
