@@ -5,7 +5,7 @@ metadata:
 spec:
   ports:
   - port: 80
-    targetPort: 8080
+    targetPort: {{ required "service port is missing" .Values.servicePort }}
     protocol: TCP
     name: http
   selector:

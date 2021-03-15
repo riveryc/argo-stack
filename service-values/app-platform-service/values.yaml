@@ -1,9 +1,9 @@
 
-serviceName: app-validation-service
+serviceName: app-platform-service
 servicePort: 8080
 
 image:
-  repository: asia.gcr.io/airwallex/app-validation-service
+  repository: asia.gcr.io/airwallex/platform-services
   tag:
 
 replicaCount: 3
