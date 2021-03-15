@@ -13,9 +13,9 @@ spec:
     targetRevision: HEAD
     helm:
       valueFiles:
-        - ../services/app-validation-service/values.yaml
-        - ../services/app-validation-service/dev/values.yaml
-        - ../services/app-validation-service/dev/gcp-sg-values.yaml
+        - ../service-values/app-validation-service/values.yaml
+        - ../service-values/app-validation-service/dev/values.yaml
+        - ../service-values/app-validation-service/dev/gcp-sg-values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: dev
