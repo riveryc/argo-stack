@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: app-validation-service-gcp-sg
+  name: app-platform-service-gcp-sg
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
