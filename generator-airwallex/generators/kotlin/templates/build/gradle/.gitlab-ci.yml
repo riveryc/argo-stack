@@ -1,7 +1,0 @@
-include:
-  - project: 'gtpn/airwallex-gtpn-dev'
-    ref: master
-    file: '/gitlab/pipeline/app-full.yml'
-
-variables:
-  ENABLE_STAGE_JENKINS: "false"

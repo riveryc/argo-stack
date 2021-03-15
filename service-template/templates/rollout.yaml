@@ -6,7 +6,7 @@ spec:
   replicas: {{ .Values.replicaCount }}
   strategy:
     canary:
-      canaryService: {{ required "service name is missing" .Values.serviceName }}-{{ required "cloud platform is missing" .Values.cloudProvider.platform }}-{{ required "region is missing" .Values.cloudProvider.region }}-preview
+      canaryService: {{ required "service name is missing" .Values.serviceName }}-preview
       steps:
         - setWeight: 20
         - pause: {}
@@ -19,14 +19,14 @@ spec:
   revisionHistoryLimit: 2
   selector:
     matchLabels:
-      app: {{ required "service name is missing" .Values.serviceName }}-{{ required "cloud platform is missing" .Values.cloudProvider.platform }}-{{ required "region is missing" .Values.cloudProvider.region }}
+      app: {{ required "service name is missing" .Values.serviceName }}
   template:
     metadata:
       labels:
-        app: {{ required "service name is missing" .Values.serviceName }}-{{ required "cloud platform is missing" .Values.cloudProvider.platform }}-{{ required "region is missing" .Values.cloudProvider.region }}
+        app: {{ required "service name is missing" .Values.serviceName }}
     spec:
       containers:
-      - name: {{ required "service name is missing" .Values.serviceName }}-{{ required "cloud platform is missing" .Values.cloudProvider.platform }}-{{ required "region is missing" .Values.cloudProvider.region }}
+      - name: {{ required "service name is missing" .Values.serviceName }}
 {{- if .Values.secretEnvironment }}
         envFrom:
           - secretRef:
