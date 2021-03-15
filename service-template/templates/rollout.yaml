@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: {{ required "service name is missing" .Values.serviceName }}-{{ required "cloud platform is missing" .Values.cloudProvider.platform }}-{{ required "region is missing" .Values.cloudProvider.region }}
+  name: {{ required "service name is missing" .Values.serviceName }}
 spec:
   replicas: {{ .Values.replicaCount }}
   strategy:
