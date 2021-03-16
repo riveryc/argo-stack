@@ -1,6 +1,6 @@
 
 serviceName: app-draftpayment-service
-servicePort: 8080
+servicePort: 10041
 
 image:
   repository: asia.gcr.io/airwallex/draft-service

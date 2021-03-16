@@ -58,7 +58,7 @@ spec:
           failureThreshold: 3
           httpGet:
             path: /actuator/health/liveness
-            port: 8080
+            port: {{ required "service port is missing" .Values.servicePort }}
             scheme: HTTP
           initialDelaySeconds: 45
           periodSeconds: 10
@@ -68,7 +68,7 @@ spec:
           failureThreshold: 3
           httpGet:
             path: /actuator/health/readiness
-            port: 8080
+            port: {{ required "service port is missing" .Values.servicePort }}
             scheme: HTTP
           initialDelaySeconds: 45
           periodSeconds: 10
