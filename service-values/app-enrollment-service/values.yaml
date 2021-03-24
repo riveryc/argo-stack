@@ -1,9 +1,9 @@
 
-serviceName: app-platform-service
-servicePort: 30080
+serviceName: app-enrollment-service
+servicePort: 33200
 
 image:
-  repository: asia.gcr.io/airwallex/platform-services
+  repository: asia.gcr.io/airwallex/app-enrollment-service
   tag:
 
 replicaCount: 3

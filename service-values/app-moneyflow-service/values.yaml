@@ -1,9 +1,9 @@
 
-serviceName: app-platform-service
-servicePort: 30080
+serviceName: app-moneyflow-service
+servicePort: 9200
 
 image:
-  repository: asia.gcr.io/airwallex/platform-services
+  repository: asia.gcr.io/airwallex/moneyflow-services
   tag:
 
 replicaCount: 3

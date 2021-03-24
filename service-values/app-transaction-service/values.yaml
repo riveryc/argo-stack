@@ -1,9 +1,9 @@
 
-serviceName: app-platform-service
-servicePort: 30080
+serviceName: app-transaction-service
+servicePort: 9000
 
 image:
-  repository: asia.gcr.io/airwallex/platform-services
+  repository: asia.gcr.io/airwallex/backend-services
   tag:
 
 replicaCount: 3

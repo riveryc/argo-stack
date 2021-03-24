@@ -1,9 +1,9 @@
 
-serviceName: app-platform-service
-servicePort: 30080
+serviceName: app-refdata-service
+servicePort: 9300
 
 image:
-  repository: asia.gcr.io/airwallex/platform-services
+  repository: asia.gcr.io/airwallex/refdata-service
   tag:
 
 replicaCount: 3
