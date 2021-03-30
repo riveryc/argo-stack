@@ -35,8 +35,8 @@ spec:
 {{- if .Values.environment }}
         env:
 {{- range $k, $v := .Values.environment }}
-          - name: {{ $k }}
-            value: {{ required (printf "%s missing" $k) ($v.value | quote) }}
+          - name: {{ $k | quote }}
+            value: {{ required (printf "%s missing" $k) ($v | quote) }}
 {{- end }}
 {{- end }}
         image: {{ required "image repository is missing" .Values.image.repository }}:{{ required "image tag is missing" .Values.image.tag }}
