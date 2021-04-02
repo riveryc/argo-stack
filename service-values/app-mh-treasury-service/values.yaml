@@ -1,5 +1,5 @@
 
-serviceName: app-enrollment-service
+serviceName: app-mh-treasury-service
 servicePort: 8080
 
 image:
