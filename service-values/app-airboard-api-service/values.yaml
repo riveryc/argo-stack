@@ -1,6 +1,6 @@
 
 serviceName: app-airboard-api-service
-servicePort: 9200
+servicePort: 12081
 
 image:
   repository: asia.gcr.io/airwallex/airboard-api

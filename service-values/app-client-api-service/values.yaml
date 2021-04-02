@@ -1,6 +1,6 @@
 
 serviceName: app-client-api-service
-servicePort: 9200
+servicePort: 20080
 
 image:
   repository: asia.gcr.io/airwallex/client-api
