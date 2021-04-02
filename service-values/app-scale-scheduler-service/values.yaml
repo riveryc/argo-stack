@@ -1,5 +1,5 @@
 serviceName: app-scale-scheduler-service
-servicePort: 22050
+servicePort: 8080
 
 image:
   repository: asia.gcr.io/airwallex/app-scale-scheduler-service
