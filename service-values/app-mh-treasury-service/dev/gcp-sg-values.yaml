@@ -1,0 +1,19 @@
+
+cloudProvider:
+  platform: gcp
+  region: sg
+
+secretEnvironment: appmhtreasuryservice
+
+environment:
+  SERVER_PORT: 8080
+  REDIS_HOST: 10.14.237.3
+  REDIS_PORT: 6379
+  POSTGRES_10_HOST: 10.14.201.40
+  POSTGRES_10_PORT: 5432
+  POSTGRES_10_USERNAME: appmhtreasuryservice_rw
+  POSTGRES_10_FLYWAY_USERNAME: appmhtreasuryservice_admin
+  RAILS_GATEWAY_URL: http://47.89.2.55:8760
+  MONEYHOUSE_SERVICE_URL: http://moneyhouseservice
+  TRANSACTION_SERVICE_URL: http://apptransactionservice
+  NEW_RELIC_ENABLE: false
