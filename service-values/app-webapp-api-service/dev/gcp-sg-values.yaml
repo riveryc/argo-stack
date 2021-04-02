@@ -3,4 +3,4 @@ cloudProvider:
   platform: gcp
   region: sg
 
-secretEnvironment: appmoneyflowservice-env
+secretEnvironment: appwebappapiservice-env
