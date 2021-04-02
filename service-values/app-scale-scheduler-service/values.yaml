@@ -1,9 +1,9 @@
 
-serviceName: app-enrollment-service
-servicePort: 8080
+serviceName: app-scale-scheduler-service
+servicePort: 22050
 
 image:
-  repository: asia.gcr.io/airwallex/app-enrollment-service
+  repository: asia.gcr.io/airwallex/app-scale-scheduler-service
   tag:
 
 replicaCount: 3
