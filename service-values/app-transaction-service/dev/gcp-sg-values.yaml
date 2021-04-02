@@ -3,4 +3,4 @@ cloudProvider:
   platform: gcp
   region: sg
 
-secretEnvironment: appdraftpaymentservice-env
+secretEnvironment: apptransactionservice-env

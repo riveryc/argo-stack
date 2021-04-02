@@ -1,0 +1,3 @@
+replicaCount: 1
+image:
+  tag: release-4.1.0-175957
