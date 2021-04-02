@@ -1,0 +1,21 @@
+
+cloudProvider:
+  platform: gcp
+  region: sg
+
+secretEnvironment: payoutorder
+
+environment:
+  NEW_RELIC_ENABLE: false
+  SERVER_PORT: 8080
+  SPRING_DATASOURCE_URL: jdbc:postgresql://10.14.201.40:5432/payoutorder
+  SPRING_DATASOURCE_USERNAME: payoutorder_rw
+  SPRING_FLYWAY_USER: payoutorder_admin
+  SPRING_PROFILES_ACTIVE: staging
+  SPRING_RABBITMQ_ADDRESSES: rabbitmq.gtpn.gcp-sg.dev.awx.im
+  SPRING_RABBITMQ_PORT: 5672
+  SPRING_RABBITMQ_VIRTUAL_HOST: airwallex
+  SPRING_RABBITMQ_USERNAME: airwallex
+  APPLICATION_SERVICE_API_RAILSGATEWAYURL: http://47.89.2.55:8760
+  APPLICATION_SERVICE_API_MONEYFLOWURL: http://appmoneyflowservice
+  APPLICATION_SERVICE_API_PLATFORMURL: http://appplatformservice
