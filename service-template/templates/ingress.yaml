@@ -8,7 +8,7 @@ metadata:
     kubernetes.io/tls-acme: "true"
 spec:
   rules:
-  - host: {{ required "service name is missing" .Values.serviceName }}-{{ required "cloud platform is missing" .Values.cloudProvider.platform }}-{{ required "region is missing" .Values.cloudProvider.region }}.awx.onl
+  - host: {{ required "service name is missing" .Values.serviceName }}.{{ required "domain is missing" .Values.cloudProvider.domain }}.{{ required "cloud platform is missing" .Values.cloudProvider.platform }}-{{ required "region is missing" .Values.cloudProvider.region }}.{{required "env is missing" .Values.cloudProvider.env}}.awx.im
     http:
       paths:
       - backend:
@@ -17,5 +17,5 @@ spec:
         path: /
   tls:
   - hosts:
-    - {{ required "service name is missing" .Values.serviceName }}-{{ required "cloud platform is missing" .Values.cloudProvider.platform }}-{{ required "region is missing" .Values.cloudProvider.region }}.poc.awx.onl
-    secretName: tls-cert-{{ required "service name missing" .Values.serviceName }}-{{ required "cloud platform is missing" .Values.cloudProvider.platform }}-{{ required "region is missing" .Values.cloudProvider.region }}
+    - {{ required "service name is missing" .Values.serviceName }}.{{ required "domain is missing" .Values.cloudProvider.domain }}.{{ required "cloud platform is missing" .Values.cloudProvider.platform }}-{{ required "region is missing" .Values.cloudProvider.region }}.{{required "env is missing" .Values.cloudProvider.env}}.awx.im
+    secretName: tls-wildcard-{{ required "domain is missing" .Values.cloudProvider.domain }}-{{ required "cloud platform is missing" .Values.cloudProvider.platform }}-{{ required "region is missing" .Values.cloudProvider.region }}-{{required "env is missing" .Values.cloudProvider.env}}-awx-im

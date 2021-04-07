@@ -1,5 +1,5 @@
 
-serviceName: app-validation-service
+serviceName: appvalidationservice
 servicePort: 8080
 
 image:
