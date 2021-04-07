@@ -1,7 +1,11 @@
 
 cloudProvider:
+  domain: gtpn
   platform: gcp
   region: sg
+  env: dev
+
+#ingress url: svcname.gtpn.gcp-sg.dev.awx.im
 
 environment:
   AWX_DATABASE_URL: jdbc:postgresql://10.14.201.40:5432/validation
