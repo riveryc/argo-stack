@@ -13,9 +13,9 @@ spec:
     targetRevision: HEAD
     helm:
       valueFiles:
-        - ../../../service-values/app-airboard-api-service/values.yaml
-        - ../../../service-values/app-airboard-api-service/{{ required "environment is missing" .Values.environment }}/values.yaml
-        - ../../../service-values/app-airboard-api-service/dev/{{ required "cloud platform is missing" .Values.platform }}-{{ required "region is missing" .Values.region }}-values.yaml
+        - ../../../../service-values/app-airboard-api-service/values.yaml
+        - ../../../../service-values/app-airboard-api-service/{{ required "environment is missing" .Values.environment }}/values.yaml
+        - ../../../../service-values/app-airboard-api-service/dev/{{ required "cloud platform is missing" .Values.platform }}-{{ required "region is missing" .Values.region }}-values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: dev
