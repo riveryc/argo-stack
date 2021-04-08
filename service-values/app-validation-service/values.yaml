@@ -1,0 +1,30 @@
+
+serviceName: appvalidationservice
+servicePort: 8080
+
+image:
+  repository: asia.gcr.io/airwallex/app-validation-service
+  tag:
+
+replicaCount: 3
+
+cloudProvider:
+  platform:
+  region:
+
+resources:
+  limits:
+    cpu: 2500m
+    memory: 2Gi
+  requests:
+    cpu: 500m
+    memory: 1Gi
+
+environment:
+  AWX_DATABASE_URL:
+  AWX_DATABASE_USERNAME:
+  AWX_ID_REDIS_ADDRESS:
+  AWX_ID_REDIS_PORT:
+  AWx_ID_REDIS_DB:
+
+secretEnvironment:

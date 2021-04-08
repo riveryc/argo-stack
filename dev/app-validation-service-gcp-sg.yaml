@@ -1,22 +1,28 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argo-rollouts
+  name: app-validation-service-gcp-sg
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: infra
+  project: dev
   source:
-    path: appservices/common/argo-rollouts
+    path: service-template
     repoURL: https://github.com/awx-zorian/argo-stack.git
     targetRevision: HEAD
+    helm:
+      valueFiles:
+        - ../service-values/app-validation-service/values.yaml
+        - ../service-values/app-validation-service/dev/values.yaml
+        - ../service-values/app-validation-service/dev/gcp-sg-values.yaml
   destination:
     server: https://kubernetes.default.svc
-    namespace: argo-rollouts
+    namespace: dev
   syncPolicy:
     automated:
       selfHeal: true
       prune: true
     syncOptions:
-    - CreateNamespace=true
+      - CreateNamespace=true
+    

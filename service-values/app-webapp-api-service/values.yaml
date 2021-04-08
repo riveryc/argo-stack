@@ -1,0 +1,25 @@
+
+serviceName: app-webapp-api-service
+servicePort: 10080
+
+image:
+  repository: asia.gcr.io/airwallex/webapp-api
+  tag:
+
+replicaCount: 3
+
+cloudProvider:
+  platform:
+  region:
+
+resources:
+  limits:
+    cpu: 2500m
+    memory: 2Gi
+  requests:
+    cpu: 500m
+    memory: 1Gi
+
+environment:
+
+secretEnvironment:

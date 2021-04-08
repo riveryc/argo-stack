@@ -1,0 +1,6 @@
+
+cloudProvider:
+  platform: gcp
+  region: sg
+
+secretEnvironment: appclientapiservice-env

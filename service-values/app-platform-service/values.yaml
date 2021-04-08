@@ -1,0 +1,25 @@
+
+serviceName: app-platform-service
+servicePort: 30080
+
+image:
+  repository: asia.gcr.io/airwallex/platform-services
+  tag:
+
+replicaCount: 3
+
+cloudProvider:
+  platform:
+  region:
+
+resources:
+  limits:
+    cpu: 4000m
+    memory: 4Gi
+  requests:
+    cpu: 4000m
+    memory: 4Gi
+
+environment:
+
+secretEnvironment:

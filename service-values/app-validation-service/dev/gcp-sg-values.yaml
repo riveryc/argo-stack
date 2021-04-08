@@ -1,0 +1,17 @@
+
+cloudProvider:
+  domain: gtpn
+  platform: gcp
+  region: sg
+  env: dev
+
+#ingress url: svcname.gtpn.gcp-sg.dev.awx.im
+
+environment:
+  AWX_DATABASE_URL: jdbc:postgresql://10.14.201.40:5432/validation
+  AWX_DATABASE_USERNAME: validation_rw
+  AWX_ID_REDIS_ADDRESS: 10.14.237.3
+  AWX_ID_REDIS_PORT: "6379"
+  AWx_ID_REDIS_DB: "1"
+
+secretEnvironment: app-validation-service-dev

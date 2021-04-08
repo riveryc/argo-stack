@@ -1,0 +1,30 @@
+
+cloudProvider:
+  platform: gcp
+  region: sg
+
+secretEnvironment: enrollmentservice
+
+environment:
+  SERVER_PORT: 8080
+  POSTGRES_10_HOST: 10.14.201.40
+  POSTGRES_10_PORT: 5432
+  POSTGRES_10_USERNAME: enrollment_rw
+  POSTGRES_10_FLYWAY_USERNAME: enrollment_admin
+  RMQ_HOST: rabbitmq.gtpn.gcp-sg.dev.awx.im
+  RMQ_PORT: 5672
+  RMQ_USERNAME: airwallex
+  RMQ_V_HOST: airwallex
+  REDIS_HOST: 10.14.237.3
+  REDIS_PORT: 6379
+  RAILS_GATEWAY_URL: http://47.89.2.55:8760
+  ACCOUNT_SERVICE_URL: http://awx-account-service
+  PLATFORM_SERVICE_URL: http://appplatformservice.gtpn
+  ORDER_COLLECTION_SERVICE_URL: http://etawxocs
+  OSS_ENDPOINT_HK: https://oss-cn-hongkong.aliyuncs.com
+  OSS_ACCESS_KEY_ID_HK: LTAIOQ1abQOBQz3q
+  OSS_BUCKET_NAME_HK: airwallex-upload-dev
+  OSS_ENDPOINT_SZ: https://oss-cn-shenzhen.aliyuncs.com
+  OSS_ACCESS_KEY_ID_SZ: LTAIOQ1abQOBQz3q
+  OSS_BUCKET_NAME_SZ: airwallex-upload-shenzhen-dev
+  NEW_RELIC_ENABLE: false

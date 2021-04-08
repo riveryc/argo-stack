@@ -1,0 +1,25 @@
+
+serviceName: app-transaction-service
+servicePort: 9000
+
+image:
+  repository: asia.gcr.io/airwallex/backend-services
+  tag:
+
+replicaCount: 3
+
+cloudProvider:
+  platform:
+  region:
+
+resources:
+  limits:
+    cpu: 2500m
+    memory: 2Gi
+  requests:
+    cpu: 500m
+    memory: 1Gi
+
+environment:
+
+secretEnvironment:

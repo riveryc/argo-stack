@@ -1,22 +1,31 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argo-rollouts
+  name: gtpn-platform
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: infra
+  project: dev
   source:
-    path: appservices/common/argo-rollouts
+    path: subdomains/gtpn-platform
     repoURL: https://github.com/awx-zorian/argo-stack.git
     targetRevision: HEAD
+    helm:
+      parameters:
+        - name: platform
+          value: gcp
+        - name: region
+          value: sg
+        - name: environment
+          value: dev
   destination:
     server: https://kubernetes.default.svc
-    namespace: argo-rollouts
+    namespace: dev
   syncPolicy:
     automated:
       selfHeal: true
       prune: true
     syncOptions:
-    - CreateNamespace=true
+      - CreateNamespace=true
+    

@@ -1,0 +1,25 @@
+
+serviceName: app-moneyflow-service
+servicePort: 9200
+
+image:
+  repository: asia.gcr.io/airwallex/moneyflow-services
+  tag:
+
+replicaCount: 3
+
+cloudProvider:
+  platform:
+  region:
+
+resources:
+  limits:
+    cpu: 4000m
+    memory: 6Gi
+  requests:
+    cpu: 1000m
+    memory: 4Gi
+
+environment:
+
+secretEnvironment:

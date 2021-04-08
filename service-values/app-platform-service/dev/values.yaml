@@ -1,0 +1,3 @@
+replicaCount: 1
+image:
+  tag: develop-190736

@@ -1,0 +1,76 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: {{ required "service name is missing" .Values.serviceName }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  strategy:
+    canary:
+      canaryService: {{ required "service name is missing" .Values.serviceName }}-preview
+      steps:
+        - setWeight: 20
+        - pause: {}
+        - setWeight: 40
+        - pause: {duration: 10}
+        - setWeight: 60
+        - pause: {duration: 10}
+        - setWeight: 80
+        - pause: {duration: 10}
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: {{ required "service name is missing" .Values.serviceName }}
+  template:
+    metadata:
+      labels:
+        app: {{ required "service name is missing" .Values.serviceName }}
+    spec:
+      containers:
+      - name: {{ required "service name is missing" .Values.serviceName }}
+{{- if .Values.secretEnvironment }}
+        envFrom:
+          - secretRef:
+              name: {{ .Values.secretEnvironment }}
+{{- end }}
+{{- if .Values.environment }}
+        env:
+{{- range $k, $v := .Values.environment }}
+          - name: {{ $k | quote }}
+            value: {{ required (printf "%s missing" $k) ($v | quote) }}
+{{- end }}
+{{- end }}
+        image: {{ required "image repository is missing" .Values.image.repository }}:{{ required "image tag is missing" .Values.image.tag }}
+        imagePullPolicy: Always
+{{- if .Values.resources }}
+        resources:
+{{ toYaml .Values.resources | indent 10 }}
+{{- else }}
+{{ fail "no resource definition" }}
+{{- end }}
+        lifecycle:
+          preStop:
+            exec:
+              command:
+                - /bin/sh
+                - -c
+                - sleep 60
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /actuator/health/liveness
+            port: {{ required "service port is missing" .Values.servicePort }}
+            scheme: HTTP
+          initialDelaySeconds: 45
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 5
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /actuator/health/readiness
+            port: {{ required "service port is missing" .Values.servicePort }}
+            scheme: HTTP
+          initialDelaySeconds: 45
+          periodSeconds: 10
+          successThreshold: 3
+          timeoutSeconds: 5

@@ -1,0 +1,3 @@
+replicaCount: 1
+image:
+  tag: GTPN-3288-payout-new-flow-190841
