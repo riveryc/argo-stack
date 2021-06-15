@@ -1,22 +1,22 @@
-# apiVersion: argoproj.io/v1alpha1
-# kind: Application
-# metadata:
-#   name: argo-notifications
-#   namespace: argocd
-#   finalizers:
-#     - resources-finalizer.argocd.argoproj.io
-# spec:
-#   project: infra
-#   source:
-#     chart: argocd-notifications
-#     repoURL: https://argoproj.github.io/argo-helm
-#     targetRevision: "1.4.0"
-#   destination:
-#     server: https://kubernetes.default.svc
-#     namespace: infra
-#   syncPolicy:
-#     automated:
-#       selfHeal: true
-#       prune: true
-#     syncOptions:
-#     - CreateNamespace=true
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argo-notifications
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: infra
+  source:
+    chart: argocd-notifications
+    repoURL: https://argoproj.github.io/argo-helm
+    targetRevision: "1.4.0"
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: infra
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+    - CreateNamespace=true
