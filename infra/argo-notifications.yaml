@@ -11,6 +11,28 @@ spec:
     chart: argocd-notifications
     repoURL: https://argoproj.github.io/argo-helm
     targetRevision: "1.4.0"
+    helm:
+      values: |
+        argocdUrl: https://argocd.poc.awx.onl
+        subscriptions:
+          # subscription for on-sync-status-unknown trigger notifications
+          - recipients:
+            - slack:argo-notification
+            triggers:
+            - sync-operation-change
+        templates:
+          template.app-sync-status: |
+            message: |
+              Application {{.app.metadata.name}} sync is {{.app.status.sync.status}}.
+              Application details: {{.context.argocdUrl}}/applications/{{.app.metadata.name}}.
+        triggers:
+          trigger.sync-operation-change: |
+            - when: app.status.operationState.phase in ['Succeeded']
+              send: [app-sync-status]
+            - when: app.status.operationState.phase in ['Running']
+              send: [app-sync-status]
+            - when: app.status.operationState.phase in ['Error', 'Failed']
+              send: [app-sync-status]
   destination:
     server: https://kubernetes.default.svc
     namespace: infra
