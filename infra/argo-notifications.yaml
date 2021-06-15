@@ -35,7 +35,7 @@ spec:
               send: [app-sync-status]
   destination:
     server: https://kubernetes.default.svc
-    namespace: infra
+    namespace: argocd
   syncPolicy:
     automated:
       selfHeal: true
