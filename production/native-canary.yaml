@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   annotations:
-    notifications.argoproj.io/subscribe.on-sync-succeeded.slack: argo-notification
+    notifications.argoproj.io/subscribe.sync-operation-change.slack: argo-notification
   name: app-native-canary
   namespace: argocd
   finalizers:
